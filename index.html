@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeopardy">
+    <title>Jeopardy</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <main class="app-container">
+        
+        <!-- Header -->
+        <header class="app-header">
+            <h1 class="app-title">Jeopardy</h1>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tab-navigation" role="tablist" aria-label="Huvudnavigation">
+            <button 
+                class="tab-button tab-button--active" 
+                role="tab" 
+                aria-selected="true"
+                aria-controls="setup-panel"
+                data-tab="setup">
+                Inställningar
+            </button>
+            <button 
+                class="tab-button" 
+                role="tab" 
+                aria-selected="false"
+                aria-controls="game-panel"
+                data-tab="game">
+                Spela
+            </button>
+        </nav>
+
+        <!-- Setup Panel -->
+        <section 
+            id="setup-panel" 
+            class="tab-panel tab-panel--active" 
+            role="tabpanel"
+            aria-labelledby="setup-tab">
+            
+            <!-- Players Section -->
+            <section class="setup-section">
+                <h2 class="section-title">Spelare</h2>
+                
+                <form class="player-form" id="player-form">
+                    <div class="form-group">
+                        <label for="player-name" class="form-label">
+                            Spelarnamn
+                        </label>
+                        <input 
+                            type="text" 
+                            id="player-name" 
+                            class="form-input"
+                            placeholder="Ange spelarnamn"
+                            required
+                            aria-required="true">
+                    </div>
+                    <button type="submit" class="btn btn--primary">
+                        Lägg till spelare
+                    </button>
+                </form>
+
+                <div class="player-list" id="player-list" role="list">
+                    <!-- Players will be rendered here -->
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="setup-section">
+                <h2 class="section-title">Kategorier</h2>
+                
+                <form class="category-form" id="category-form">
+                    <div class="form-group">
+                        <label for="category-name" class="form-label">
+                            Kategorinamn
+                        </label>
+                        <input 
+                            type="text" 
+                            id="category-name" 
+                            class="form-input"
+                            placeholder="T.ex. Geografi"
+                            required
+                            aria-required="true">
+                    </div>
+                    <button type="submit" class="btn btn--primary">
+                        Lägg till kategori
+                    </button>
+                </form>
+
+                <div class="category-list" id="category-list" role="list">
+                    <!-- Categories will be rendered here -->
+                </div>
+            </section>
+        </section>
+
+        <!-- Game Panel -->
+        <section 
+            id="game-panel" 
+            class="tab-panel" 
+            role="tabpanel"
+            aria-labelledby="game-tab"
+            hidden>
+            
+            <!-- Scoreboard -->
+            <div class="scoreboard" id="scoreboard" role="region" aria-label="Poängställning">
+                <!-- Scoreboard will be rendered here -->
+            </div>
+
+            <!-- Game Board -->
+            <div class="game-board" id="game-board" role="grid" aria-label="Spelplan">
+                <!-- Game board will be rendered here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Question Modal -->
+    <dialog class="modal" id="question-modal" aria-labelledby="modal-question">
+        <div class="modal-content">
+            <h2 id="modal-question" class="modal-question">
+                <!-- Question text -->
+            </h2>
+            
+            <p id="modal-answer" class="modal-answer" hidden>
+                <!-- Answer text -->
+            </p>
+
+            <div id="modal-actions" class="modal-actions">
+                <!-- Action buttons will be rendered here -->
+            </div>
+        </div>
+    </dialog>
+
+    <!-- JavaScript Module -->
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
